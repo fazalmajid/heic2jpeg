@@ -11,7 +11,7 @@ Running:
 heic2jpeg foo.HEIC bar.HEIC ...
 ```
 
-will convert `foo.HEIC` to `foo.jpg`, `bar.HEIC` to `bar.jpg` and so on. If the destination files already exist, they will *not* be overwritten. There are no options, the JPEG files will be created using 90% quality, which is more than good enough for smartphones with their low-quality sensors. Since it is using CoreImage, all the image metadata will be carried over, including iPhone geoloc data, so if you want to scrub that, you will need to use another tool like `jhead -purejpg` or my own [jpegstrip](https://blog.majid.info/trimming-the-fat-from-jpegs/).
+will convert `foo.HEIC` to `foo.jpg`, `bar.HEIC` to `bar.jpg` and so on. If the destination files already exist, they will *not* be overwritten. The only option is `--delete` to delete the HEIC file after successful conversion. The JPEG files will be created using 90% quality, which is more than good enough for smartphones with their low-quality sensors. Since it is using CoreImage, all the image metadata will be carried over, including iPhone geoloc data, so if you want to scrub that, you will need to use another tool like `jhead -purejpg` or my own [jpegstrip](https://blog.majid.info/trimming-the-fat-from-jpegs/).
 
 To convert an entire directory with HEIC images, while using all the cores on my system, I use the command:
 
