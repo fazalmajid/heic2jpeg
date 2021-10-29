@@ -28,18 +28,15 @@ for i in 1..<Int(CommandLine.argc) {
     } else {
         print("converting \(filename ?? "???")")
         let image = CIImage(contentsOf: srcURL)
-        do {
-            try context.writeJPEGRepresentation(
-                of:image!,
-                to:destURL,
-                colorSpace: image!.colorSpace!,
-                options:options as! [CIImageRepresentationOption : Any]
-            )
-            if delete {
-                print("deleting \(filename ?? "???")")
-                try FileManager.default.removeItem(at:srcURL)
-            }
-        } catch {
+        try! context.writeJPEGRepresentation(
+            of:image!,
+            to:destURL,
+            colorSpace: image!.colorSpace!,
+            options:options as! [CIImageRepresentationOption : Any]
+        )
+        if delete {
+            print("deleting \(filename ?? "???")")
+            try! FileManager.default.removeItem(at:srcURL)
         }
     }
 }
